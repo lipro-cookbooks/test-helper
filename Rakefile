@@ -126,6 +126,7 @@ task default: 'test'
 
 ################################################################################
 
+# We cannot run Test Kitchen on Travis CI yet...
 desc 'Run all tests on Travis'
 task travis: %w(lint unit)
 
@@ -216,11 +217,13 @@ task :integration do
   end
 end
 
-begin
-  require 'kitchen/rake_tasks'
-  Kitchen::RakeTasks.new
-rescue LoadError
-  puts '>>>>> Kitchen gem not loaded, omitting tasks' unless ENV['CI']
+namespace :integration do
+  begin
+    require 'kitchen/rake_tasks'
+    Kitchen::RakeTasks.new
+  rescue LoadError
+    puts '>>>>> Kitchen gem not loaded, omitting tasks' unless ENV['CI']
+  end
 end
 
 # vim: ts=2 sts=2 sw=2 ai si et ft=ruby
