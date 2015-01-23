@@ -3,8 +3,10 @@
 # Recipe:: dump_node
 #
 # Author:: Stephan Linz <linz@li-pro.net>
+# Author:: Konstantin Lysenko <gshaud@gmail.com>
 #
 # Copyright:: 2015, Li-Pro.Net
+# Copyright:: 2014, Konstantin Lysenko
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
