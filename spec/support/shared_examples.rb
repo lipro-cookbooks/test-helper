@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: wawision
+# Cookbook Name:: test-helper
 # Spec:: shared_examples
 #
 # Author:: Stephan Linz <linz@li-pro.net>

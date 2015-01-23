@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: wawision
+# Cookbook Name:: test-helper
 # Build:: Rakefile
 #
 # Author:: Stephan Linz <linz@li-pro.net>
