@@ -1,0 +1,8 @@
+[submodule "foodcritic/customink"]
+	path = foodcritic/customink
+	url = git@github.com:customink-webops/foodcritic-rules.git
+	branch = master
+[submodule "foodcritic/etsy"]
+	path = foodcritic/etsy
+	url = git@github.com:etsy/foodcritic-rules.git
+	branch = master

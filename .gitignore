@@ -1,9 +1,26 @@
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+pkg/
+
+# Berkshelf
 .vagrant
 /cookbooks
+Berksfile.lock
+
+# Rubocop and Rspec
+**/lint/reports/*
+**/spec/reports/*
 
 # Bundler
+# Gemfile.lock
 bin/*
 .bundle/*
 
 .kitchen/
 .kitchen.local.yml
+
+**/Vagrantfile.erb
