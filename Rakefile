@@ -217,13 +217,4 @@ task :integration do
   end
 end
 
-namespace :integration do
-  begin
-    require 'kitchen/rake_tasks'
-    Kitchen::RakeTasks.new
-  rescue LoadError
-    puts '>>>>> Kitchen gem not loaded, omitting tasks' unless ENV['CI']
-  end
-end
-
 # vim: ts=2 sts=2 sw=2 ai si et ft=ruby
