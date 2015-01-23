@@ -126,6 +126,11 @@ task default: 'test'
 
 ################################################################################
 
+desc 'Run all tests on Travis'
+task travis: %w(lint unit)
+
+################################################################################
+
 desc 'Run Foodcritic and Rubocop'
 task lint: %w(foodcritic rubocop)
 

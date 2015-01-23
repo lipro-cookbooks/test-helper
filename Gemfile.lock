@@ -244,6 +244,8 @@ GEM
     thread_safe (0.3.4)
     timers (4.0.1)
       hitimes
+    travis-lint (2.0.0)
+      json
     treetop (1.5.3)
       polyglot (~> 0.3)
     tzinfo (1.2.2)
@@ -274,5 +276,6 @@ DEPENDENCIES
   serverspec (~> 2.7.1)
   test-kitchen (~> 1.2.1)
   thor-foodcritic (~> 0.2.0)
+  travis-lint (~> 2.0.0)
   vagrant-wrapper (~> 2.0.1)
   versionomy (~> 0.4.4)
