@@ -16,9 +16,9 @@ Berksfile.lock
 **/spec/reports/*
 
 # Bundler
-# Gemfile.lock
 bin/*
 .bundle/*
+Gemfile.lock
 
 .kitchen/
 .kitchen.local.yml

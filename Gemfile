@@ -41,7 +41,6 @@ gem 'fauxhai', github: 'customink/fauxhai', branch: 'master'
 group :integration do
   gem 'test-kitchen', '~>1.2.1'
   gem 'kitchen-vagrant', '~>0.15.0'
-  gem 'vagrant-wrapper', '~>2.0.1'
   gem 'serverspec', '~>2.7.1'
 end
 
