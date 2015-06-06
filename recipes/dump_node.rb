@@ -63,6 +63,11 @@ ruby_block 'Dump node attributes' do # ~FC014
 
     attrs = {}
 
+    # collect and add automatic ohai attrs
+    attrs = attrs.deep_merge(
+      node.automatic_attrs
+    ) unless node.automatic_attrs.empty?
+
     # collect and add all defaults
     attrs = attrs.deep_merge(
       node.default_attrs
