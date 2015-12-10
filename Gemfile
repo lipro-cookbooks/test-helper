@@ -20,28 +20,43 @@
 #
 
 # See details for Bundler's Gemfile Syntax on:
-# http://bundler.io/v1.7/gemfile.html
+# http://bundler.io/v1.10/gemfile.html
 
 source 'https://rubygems.org'
 
-gem 'activesupport', '~>4.2.0'
+gem 'activesupport', '~>4.2.5'
 
-gem 'berkshelf', '~>3.2.2'
-gem 'rake', '~>10.4.2'
-gem 'versionomy', '~>0.4.4'
-gem 'foodcritic', '~>4.0.0'
-gem 'thor-foodcritic', '~>0.2.0'
-gem 'rubocop', '~>0.28.0'
-gem 'rubocop-checkstyle_formatter', '~>0.1.1'
-gem 'travis-lint', '~>2.0.0'
-gem 'chefspec', '~>4.2.0'
-gem 'ci_reporter_rspec', '~>1.0.0'
-gem 'fauxhai', github: 'customink/fauxhai', branch: 'master'
+group :rake do
+  gem 'rake', '~>10.4.2'
+  gem 'versionomy', '~>0.4.4'
+end
 
-group :integration do
-  gem 'test-kitchen', '~>1.2.1'
-  gem 'kitchen-vagrant', '~>0.15.0'
-  gem 'serverspec', '~>2.7.1'
+group :lint do
+  gem 'foodcritic', '~>5.0.0'
+  gem 'rubocop', '~>0.34.2'
+  gem 'rubocop-checkstyle_formatter', '~>0.2.0'
+  gem 'travis-lint', '~>2.0.0'
+end
+
+group :unit do
+  gem 'berkshelf', '~>4.0.1'
+  gem 'chefspec', '~>4.5.0'
+  gem 'chef-sugar', '~>3.2.0'
+  gem 'ci_reporter_rspec', '~>1.0.0'
+  gem 'fauxhai', '~>3.0.1'
+end
+
+group :kitchen_common do
+  gem 'test-kitchen', '~>1.4.2'
+  gem 'serverspec', '~>2.24.3'
+end
+
+group :kitchen_vagrant do
+  gem 'kitchen-vagrant', '~>0.19.0'
+end
+
+group :kitchen_docker do
+  gem 'kitchen-docker', '~>2.3.0'
 end
 
 # vim: ts=2 sts=2 sw=2 ai si et ft=ruby
