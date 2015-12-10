@@ -86,8 +86,8 @@ desc 'Get cookbook name and version'
 task :cookbook do
   content = File.read('metadata.rb')
 
-  name_pattern  = /(name.*?')(.*?)(')/
-  version_pattern  = /(version.*?')(.*?)(')/
+  name_pattern = /(name.*?')(.*?)(')/
+  version_pattern = /(version.*?')(.*?)(')/
   version = content.match(version_pattern)[2]
   name = content.match(name_pattern)[2]
 
@@ -100,7 +100,7 @@ desc 'Get cookbook version'
 task :version do
   content = File.read('metadata.rb')
 
-  version_pattern  = /(version.*?')(.*?)(')/
+  version_pattern = /(version.*?')(.*?)(')/
   version = content.match(version_pattern)[2]
 
   puts "#{version}"
@@ -112,7 +112,7 @@ desc 'Get cookbook name'
 task :name do
   content = File.read('metadata.rb')
 
-  name_pattern  = /(name.*?')(.*?)(')/
+  name_pattern = /(name.*?')(.*?)(')/
   name = content.match(name_pattern)[2]
 
   puts "#{name}"
@@ -196,10 +196,7 @@ namespace :unit do
       desc "Run #{suite[:title]} Chefspec test suite"
       RSpec::Core::RakeTask.new(suite[:id]) do |t|
         t.pattern = suite[:pattern]
-        t.rspec_opts = %w(
-          --color
-          --format documentation
-        )
+        t.rspec_opts = %w(vagrant -v --color --format documentation)
         t.fail_on_error = true
         t.verbose = false
       end
