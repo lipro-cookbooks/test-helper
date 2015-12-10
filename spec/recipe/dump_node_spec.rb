@@ -78,7 +78,7 @@ shared_examples_for 'dump node' do
 
   it 'run ruby block' do
     expect(chef_run).to run_ruby_block('Dump node attributes')
-      .with_action('run')
+      .with_action([:run])
   end
 end
 
