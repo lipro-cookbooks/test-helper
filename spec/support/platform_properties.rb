@@ -26,10 +26,12 @@ require 'json'
 def load_platform_properties(args)
   p = args[:platform]
   pv = args[:platform_version]
-  JSON.parse(IO.read(File.join(
-    File.dirname(__FILE__),
-    "/../../test/shared/platforms/#{p}/#{pv}.json"
-  )), symbolize_names: true)
+  JSON.parse(
+    IO.read(
+      File.join(
+        File.dirname(__FILE__),
+        "/../../test/shared/platforms/#{p}/#{pv}.json"
+      )), symbolize_names: true)
 end
 
 # vim: ts=2 sts=2 sw=2 ai si et ft=ruby

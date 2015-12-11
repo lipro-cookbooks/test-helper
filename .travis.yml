@@ -23,14 +23,62 @@
 # http://docs.travis-ci.com/user/build-configuration/
 # http://docs.travis-ci.com/user/languages/ruby/
 
-language: ruby
+# See details for chef cookbooks on:
+# https://github.com/chef-cookbooks/maven/blob/master/.travis.yml
+# https://github.com/chef-cookbooks/jenkins/blob/master/.travis.yml
 
-rvm:
-  - 2.1.3
+sudo: required
 
-bundler_args: --jobs 7
+# Install the stable release chef-dk.
+# Use chef-current-precise to install the pre-release
+addons:
+  apt:
+    sources:
+      - chef-stable-precise
+    packages:
+      - chefdk
 
+# Don't `bundle install`
+install: echo "skip bundle install"
+
+services:
+  - docker
+
+env:
+  global:
+    # Ignore warnings when running specs.
+    - RUBYOPT="-W0"
+  matrix:
+    - INSTANCE=default-ubuntu-1204
+    - INSTANCE=overrides-ubuntu-1204
+    - INSTANCE=default-ubuntu-1404
+    - INSTANCE=overrides-ubuntu-1404
+    - INSTANCE=default-centos-6
+    - INSTANCE=overrides-centos-6
+    - INSTANCE=default-centos-7
+    - INSTANCE=overrides-centos-7
+
+# Ensure we make ChefDK's Ruby the default
+before_script:
+  # https://github.com/zuazo/kitchen-in-travis-native/issues/1#issuecomment-142230889
+  - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
+  - eval "$(/opt/chefdk/bin/chef shell-init bash)"
+  # We have to install chef-sugar for ChefSpec
+  - /opt/chefdk/embedded/bin/chef gem install chef-sugar
+  # Ensure kitchen-docker is available for testing
+  - /opt/chefdk/embedded/bin/chef gem install kitchen-docker
 script:
+  - /opt/chefdk/embedded/bin/chef --version
+  - /opt/chefdk/embedded/bin/rubocop --version
+  # /opt/chefdk/embedded/bin/rubocop
+  - /opt/chefdk/embedded/bin/foodcritic --version
+  # /opt/chefdk/embedded/bin/foodcritic .
+  - /opt/chefdk/embedded/bin/rspec --version
+  # /opt/chefdk/embedded/bin/rspec spec
+  # Run rspec by rake over bundle: fauxhai in chefdk is to old!
+  - bundle install
   - bundle exec rake travis
+  - /opt/chefdk/embedded/bin/kitchen --version
+  - KITCHEN_LOCAL_YAML=.kitchen.docker.yml /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
 
 # vim: ts=2 sts=2 sw=2 ai si et ft=yaml

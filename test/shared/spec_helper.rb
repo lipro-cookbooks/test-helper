@@ -78,11 +78,14 @@ end
 def load_nodestub(ohai)
   puts "Loading #{ohai[:platform]}/#{ohai[:platform_version]}.json"
 
-  JSON.parse(IO.read(File.join(
-    "#{ENV['BUSSER_ROOT']}",
-    '/../kitchen/data/platforms',
-    "/#{ohai[:platform]}/#{ohai[:platform_version]}.json"
-  )), symbolize_names: true)
+  JSON.parse(
+    IO.read(
+      File.join(
+        "#{ENV['BUSSER_ROOT']}",
+        '/../kitchen/data/platforms',
+        "/#{ohai[:platform]}/#{ohai[:platform_version]}.json"
+      )
+    ), symbolize_names: true)
 end
 
 def load_nodedump(dump_node)
