@@ -67,7 +67,7 @@ def unsupported_platforms
     #
     # os: 'windows'
     # platform_family: 'windows'
-    'windows'   => %w(2012R2 2012 2008R2 2003R2)
+    'windows'   => %w(2012R2 2008R2 2003R2)
   }
 end
 # rubocop:enable Metrics/MethodLength
