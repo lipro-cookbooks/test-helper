@@ -49,11 +49,19 @@ env:
     # Ignore warnings when running specs.
     - RUBYOPT="-W0"
   matrix:
-    - CHEF_VERSION=12.0.3
-    # CHEF_VERSION=latest
+    - INSTANCE=default-ubuntu-1204
+    - INSTANCE=overrides-ubuntu-1204
+    - INSTANCE=default-ubuntu-1404
+    - INSTANCE=overrides-ubuntu-1404
+    - INSTANCE=default-centos-6
+    - INSTANCE=overrides-centos-6
+    - INSTANCE=default-centos-7
+    - INSTANCE=overrides-centos-7
 
 # Ensure we make ChefDK's Ruby the default
 before_script:
+  # https://github.com/zuazo/kitchen-in-travis-native/issues/1#issuecomment-142230889
+  - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
   - eval "$(/opt/chefdk/bin/chef shell-init bash)"
   # We have to install chef-sugar for ChefSpec
   - /opt/chefdk/embedded/bin/chef gem install chef-sugar
@@ -71,6 +79,6 @@ script:
   - bundle install
   - bundle exec rake travis
   - /opt/chefdk/embedded/bin/kitchen --version
-  # KITCHEN_LOCAL_YAML=.kitchen.docker.yml /opt/chefdk/embedded/bin/kitchen verify smoke-war-stable-ubuntu-docker
+  - KITCHEN_LOCAL_YAML=.kitchen.docker.yml /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
 
 # vim: ts=2 sts=2 sw=2 ai si et ft=yaml
