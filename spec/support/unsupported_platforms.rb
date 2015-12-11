@@ -30,10 +30,12 @@ def unsupported_platforms
     #
     # os: 'linux'
     # platform_family: 'fedora'
-    'fedora'    => %w(21 20 19 18),
+    'fedora'    => %w(22 21 20 19 18),
     # platform_family: 'suse'
-    'opensuse'  => %w(13.1 12.3),
-    'suse'      => %w(12.0 11.3 11.2 11.1),
+    'opensuse'  => %w(13.2 13.1
+                      12.3),
+    'suse'      => %w(12.0
+                      11.3 11.2 11.1),
     # platform_family: 'arch'
     'arch'      => %w(3.10.5-1-ARCH),
     # platform_family: 'gentoo'
@@ -43,7 +45,9 @@ def unsupported_platforms
     #
     # os: 'freebsd'
     # platform_family: 'freebsd'
-    'freebsd'   => %w(10.0 9.2 9.1 8.4),
+    'freebsd'   => %w(10.2 10.1 10.0
+                      9.3 9.2 9.1
+                      8.4),
     #
     # os: 'openbsd'
     # platform_family: 'openbsd'
@@ -51,7 +55,7 @@ def unsupported_platforms
     #
     # os: 'solaris2'
     # platform_family: 'omnios'
-    'omnios'    => %w(151008 151006 151002),
+    'omnios'    => %w(151014 151008 151006 151002),
     # platform_family: 'smartos'
     'smartos'   => %w(5.11),
     # platform_family: 'solaris2'
@@ -59,15 +63,20 @@ def unsupported_platforms
     #
     # os: 'aix'
     # platform_family: 'aix'
-    'aix'       => %w(7.1 6.1),
+    'aix'       => %w(7.1
+                      6.1),
     #
     # os: 'darwin'
     # platform_family: 'mac_os_x'
-    'mac_os_x'  => %w(10.10 10.9.2 10.8.2 10.7.4 10.6.8),
+    'mac_os_x'  => %w(10.11.1 10.10 10.9.2 10.8.2 10.7.4 10.6.8),
     #
     # os: 'windows'
     # platform_family: 'windows'
-    'windows'   => %w(2012R2 2008R2 2003R2)
+    'windows'   => %w(10
+                      8.1 8
+                      2012R2
+                      2008R2
+                      2003R2)
   }
 end
 # rubocop:enable Metrics/MethodLength
