@@ -23,7 +23,9 @@
 
 include_recipe 'test-helper::commons'
 
-chef_gem 'activesupport'
+chef_gem 'activesupport' do
+  version '< 5'
+end
 
 require 'pathname'
 require 'active_support/core_ext/hash/deep_merge'
