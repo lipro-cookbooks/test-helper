@@ -31,7 +31,10 @@ def load_platform_properties(args)
       File.join(
         File.dirname(__FILE__),
         "/../../test/shared/platforms/#{p}/#{pv}.json"
-      )), symbolize_names: true)
+      )
+    ),
+    symbolize_names: true
+  )
 end
 
 # vim: ts=2 sts=2 sw=2 ai si et ft=ruby

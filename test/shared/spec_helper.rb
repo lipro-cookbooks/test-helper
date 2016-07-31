@@ -85,7 +85,9 @@ def load_nodestub(ohai)
         '/../kitchen/data/platforms',
         "/#{ohai[:platform]}/#{ohai[:platform_version]}.json"
       )
-    ), symbolize_names: true)
+    ),
+    symbolize_names: true
+  )
 end
 
 def load_nodedump(dump_node)
