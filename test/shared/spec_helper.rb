@@ -75,6 +75,7 @@ def ohai_platform(os, osmapping)
 end
 # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
+# rubocop:disable Metrics/MethodLength
 def load_nodestub(ohai)
   puts "Loading #{ohai[:platform]}/#{ohai[:platform_version]}.json"
 
@@ -89,6 +90,7 @@ def load_nodestub(ohai)
     symbolize_names: true
   )
 end
+# rubocop:enable Metrics/MethodLength
 
 def load_nodedump(dump_node)
   puts "Loading #{dump_node}"
