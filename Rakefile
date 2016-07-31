@@ -188,7 +188,7 @@ SPEC_SUITES = [
     pattern: 'spec/recipe/{,_*}commons{,_*}_spec.rb' },
   { id: :default, title: 'default',
     pattern: 'spec/recipe/default_spec.rb' }
-]
+].freeze
 
 namespace :unit do
   namespace :suite do
