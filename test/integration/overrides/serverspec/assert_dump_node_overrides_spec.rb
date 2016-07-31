@@ -40,9 +40,9 @@ describe 'dump_node::default' do
     expect(th[:node]).to eq 'dn.json'
   end
 
-  context file("#{th[:dir]}") do
+  context file(th[:dir].to_s) do
     include_examples 'a directory' do
-      let(:drn) { "#{th[:dir]}" }
+      let(:drn) { th[:dir].to_s }
       let(:dmd) { '750' }
       let(:usr) { 'root' }
       let(:grp) { 'root' }

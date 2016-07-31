@@ -131,13 +131,13 @@ shared_examples 'dump_node_defaults' do |platform, version|
     subject { chef_run }
 
     include_examples 'prepare test helper runtime environment' do
-      let(:dir)  { "#{th[:dir]}" }
-      let(:node) { "#{th[:node]}" }
+      let(:dir)  { th[:dir].to_s }
+      let(:node) { th[:node].to_s }
     end
 
     include_examples 'dump node' do
-      let(:dir)  { "#{th[:dir]}" }
-      let(:node) { "#{th[:node]}" }
+      let(:dir)  { th[:dir].to_s }
+      let(:node) { th[:node].to_s }
     end
   end
 end

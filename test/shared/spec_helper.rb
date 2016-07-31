@@ -81,7 +81,7 @@ def load_nodestub(ohai)
   JSON.parse(
     IO.read(
       File.join(
-        "#{ENV['BUSSER_ROOT']}",
+        ENV['BUSSER_ROOT'].to_s,
         '/../kitchen/data/platforms',
         "/#{ohai[:platform]}/#{ohai[:platform_version]}.json"
       )
@@ -91,7 +91,7 @@ end
 def load_nodedump(dump_node)
   puts "Loading #{dump_node}"
 
-  JSON.parse(IO.read("#{dump_node}"), symbolize_names: true)
+  JSON.parse(IO.read(dump_node.to_s), symbolize_names: true)
 end
 
 RSpec.configure do |_config|

@@ -103,7 +103,7 @@ task :version do
   version_pattern = /(version.*?')(.*?)(')/
   version = content.match(version_pattern)[2]
 
-  puts "#{version}"
+  puts version.to_s
 end
 
 ################################################################################
@@ -115,7 +115,7 @@ task :name do
   name_pattern = /(name.*?')(.*?)(')/
   name = content.match(name_pattern)[2]
 
-  puts "#{name}"
+  puts name.to_s
 end
 
 ################################################################################
