@@ -3,6 +3,12 @@ Test Helper CHANGELOG
 
 This file is used to list changes made in each version of the Test Helper cookbook.
 
+x.y.z
+-----
+
+- Patrick Connolly - pin `activesupport` to "< 5.0.0", otherwise
+  requires Ruby v2.2.2.
+
 1.1.0
 -----
 - Stephan Linz - support ChefDK 0.10
