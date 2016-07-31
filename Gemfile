@@ -24,39 +24,39 @@
 
 source 'https://rubygems.org'
 
-gem 'activesupport', '~>4.2.5'
+gem 'activesupport', '~>4.2.7'
 
 group :rake do
-  gem 'rake', '~>10.4.2'
-  gem 'versionomy', '~>0.4.4'
+  gem 'rake', '~>11.2.2'
+  gem 'versionomy', '~>0.5.0'
 end
 
 group :lint do
-  gem 'foodcritic', '~>5.0.0'
-  gem 'rubocop', '~>0.34.2'
+  gem 'foodcritic', '~>7.0.1'
+  gem 'rubocop', '~>0.42.0'
   gem 'rubocop-checkstyle_formatter', '~>0.2.0'
   gem 'travis-lint', '~>2.0.0'
 end
 
 group :unit do
-  gem 'berkshelf', '~>4.0.1'
-  gem 'chefspec', '~>4.5.0'
-  gem 'chef-sugar', '~>3.2.0'
+  gem 'berkshelf', '~>4.3.5'
+  gem 'chefspec', '~>4.7.0'
+  gem 'chef-sugar', '~>3.4.0'
   gem 'ci_reporter_rspec', '~>1.0.0'
-  gem 'fauxhai', '~>3.0.1'
+  gem 'fauxhai', '~>3.6.0'
 end
 
 group :kitchen_common do
-  gem 'test-kitchen', '~>1.4.2'
-  gem 'serverspec', '~>2.24.3'
+  gem 'test-kitchen', '~>1.10.2'
+  gem 'serverspec', '~>2.36.0'
 end
 
 group :kitchen_vagrant do
-  gem 'kitchen-vagrant', '~>0.19.0'
+  gem 'kitchen-vagrant', '~>0.20.0'
 end
 
 group :kitchen_docker do
-  gem 'kitchen-docker', '~>2.3.0'
+  gem 'kitchen-docker', '~>2.5.0'
 end
 
 # vim: ts=2 sts=2 sw=2 ai si et ft=ruby
