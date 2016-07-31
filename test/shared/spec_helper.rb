@@ -37,7 +37,7 @@ Dir[File.expand_path('../support/**/*.rb', __FILE__)].each do |file|
   require_relative(file)
 end
 
-# http://serverspec.org/advanced_tips.html
+# http://serverspec.org/advanced_tips.html --> How to get OS information
 # os[:family]  # RedHat, Ubuntu, Debian and so on
 # os[:release] # OS release version (cleaned up in v2)
 # os[:arch]
@@ -50,7 +50,7 @@ osmapping = {
   'ubuntu' => {
     platform_family: 'debian',
     platform: 'ubuntu',
-    platform_version: '14.04'
+    platform_version: '16.04'
   }
 }
 
