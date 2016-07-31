@@ -6,6 +6,8 @@ This file is used to list changes made in each version of the Test Helper cookbo
 x.y.z
 -----
 
+- Stephan Linz - add source_url in metadata (fix FC065)
+- Stephan Linz - add issues_url in metadata (fix FC064)
 - Stephan Linz - add chef_gem compile time compatibility for activesupport
 - Stephan Linz - support ChefDK 0.16.28, use chef client 12.12.15
 - Patrick Connolly - pin `activesupport` to "< 5.0.0", otherwise
