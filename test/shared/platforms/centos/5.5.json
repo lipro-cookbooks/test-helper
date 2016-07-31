@@ -1,0 +1,6 @@
+{
+  "test-helper": {
+    "dir": "/tmp/test-helper",
+    "node": "node.json"
+  }
+}
