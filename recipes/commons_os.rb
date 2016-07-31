@@ -30,10 +30,10 @@ when 'linux'
       level :info
     end
   else
-    fail "`#{node['platform']}` is not supported!"
+    raise "`#{node['platform']}` is not supported!"
   end
 else
-  fail "`#{node['platform']}` is not supported!"
+  raise "`#{node['platform']}` is not supported!"
 end
 
 # vim: ts=2 sts=2 sw=2 ai si et ft=ruby
