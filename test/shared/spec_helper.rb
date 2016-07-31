@@ -45,7 +45,7 @@ osmapping = {
   'redhat' => {
     platform_family: 'rhel',
     platform: 'centos',
-    platform_version: '6.5'
+    platform_version: '7.2'
   },
   'ubuntu' => {
     platform_family: 'debian',
