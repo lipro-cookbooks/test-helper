@@ -54,7 +54,7 @@ osmapping = {
   }
 }
 
-# rubocop:disable Metrics/MethodLength, Metrics/AbcSize
+# rubocop:disable Metrics/MethodLength
 def ohai_platform(os, osmapping)
   puts 'serverspec os detected as: ' \
     "#{os[:family]} #{os[:release]} [#{os[:arch]}]"
@@ -73,7 +73,7 @@ def ohai_platform(os, osmapping)
 
   ohaistub
 end
-# rubocop:enable Metrics/MethodLength, Metrics/AbcSize
+# rubocop:enable Metrics/MethodLength
 
 # rubocop:disable Metrics/MethodLength
 def load_nodestub(ohai)
