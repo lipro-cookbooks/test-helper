@@ -37,7 +37,7 @@ Dir[File.expand_path('../support/**/*.rb', __FILE__)].each do |file|
   require_relative(file)
 end
 
-# http://serverspec.org/advanced_tips.html
+# http://serverspec.org/advanced_tips.html --> How to get OS information
 # os[:family]  # RedHat, Ubuntu, Debian and so on
 # os[:release] # OS release version (cleaned up in v2)
 # os[:arch]
@@ -45,16 +45,16 @@ osmapping = {
   'redhat' => {
     platform_family: 'rhel',
     platform: 'centos',
-    platform_version: '6.5'
+    platform_version: '7.2'
   },
   'ubuntu' => {
     platform_family: 'debian',
     platform: 'ubuntu',
-    platform_version: '14.04'
+    platform_version: '16.04'
   }
 }
 
-# rubocop:disable Metrics/MethodLength, Metrics/AbcSize
+# rubocop:disable Metrics/MethodLength
 def ohai_platform(os, osmapping)
   puts 'serverspec os detected as: ' \
     "#{os[:family]} #{os[:release]} [#{os[:arch]}]"
@@ -73,25 +73,29 @@ def ohai_platform(os, osmapping)
 
   ohaistub
 end
-# rubocop:enable Metrics/MethodLength, Metrics/AbcSize
+# rubocop:enable Metrics/MethodLength
 
+# rubocop:disable Metrics/MethodLength
 def load_nodestub(ohai)
   puts "Loading #{ohai[:platform]}/#{ohai[:platform_version]}.json"
 
   JSON.parse(
     IO.read(
       File.join(
-        "#{ENV['BUSSER_ROOT']}",
+        ENV['BUSSER_ROOT'].to_s,
         '/../kitchen/data/platforms',
         "/#{ohai[:platform]}/#{ohai[:platform_version]}.json"
       )
-    ), symbolize_names: true)
+    ),
+    symbolize_names: true
+  )
 end
+# rubocop:enable Metrics/MethodLength
 
 def load_nodedump(dump_node)
   puts "Loading #{dump_node}"
 
-  JSON.parse(IO.read("#{dump_node}"), symbolize_names: true)
+  JSON.parse(IO.read(dump_node.to_s), symbolize_names: true)
 end
 
 RSpec.configure do |_config|

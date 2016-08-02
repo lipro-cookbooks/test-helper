@@ -23,6 +23,7 @@
 
 require 'json'
 
+# rubocop:disable Metrics/MethodLength
 def load_platform_properties(args)
   p = args[:platform]
   pv = args[:platform_version]
@@ -31,7 +32,11 @@ def load_platform_properties(args)
       File.join(
         File.dirname(__FILE__),
         "/../../test/shared/platforms/#{p}/#{pv}.json"
-      )), symbolize_names: true)
+      )
+    ),
+    symbolize_names: true
+  )
 end
+# rubocop:enable Metrics/MethodLength
 
 # vim: ts=2 sts=2 sw=2 ai si et ft=ruby

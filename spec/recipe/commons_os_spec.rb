@@ -37,7 +37,7 @@ shared_examples 'commons_os_recipes' do |platform, version|
 
     cached(:chef_run) do
       ChefSpec::SoloRunner.new(platform: platform, version: version)
-        .converge(described_recipe)
+                          .converge(described_recipe)
     end
     subject { chef_run }
 
@@ -56,7 +56,7 @@ shared_examples 'commons_os_unsupported' do |platform, version|
   context "on #{platform} #{version} (unsupported)" do
     cached(:chef_run) do
       ChefSpec::SoloRunner.new(platform: platform, version: version)
-        .converge(described_recipe)
+                          .converge(described_recipe)
     end
     subject { chef_run }
 

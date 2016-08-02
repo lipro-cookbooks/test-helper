@@ -33,6 +33,14 @@ maintainer_email 'linz@li-pro.net'
 description 'Dumps chef node data to json file'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 
+if respond_to?(:source_url)
+  source_url 'https://github.com/lipro-cookbooks/test-helper'
+end
+
+if respond_to?(:issues_url)
+  issues_url 'https://github.com/lipro-cookbooks/test-helper/issues'
+end
+
 %w(
   debian
   ubuntu

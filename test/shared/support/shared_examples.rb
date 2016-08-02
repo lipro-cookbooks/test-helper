@@ -116,7 +116,7 @@ end
 #
 shared_examples_for 'a package' do
   it 'is installed' do
-    expect(package package_name).to be_installed
+    expect((package package_name)).to be_installed
   end
 end
 
@@ -129,11 +129,11 @@ end
 #
 shared_examples_for 'a service' do
   it 'is enabled' do
-    expect(service service_name).to be_enabled
+    expect((service service_name)).to be_enabled
   end
 
   it 'is running' do
-    expect(service service_name).to be_running
+    expect((service service_name)).to be_running
   end
 end
 
@@ -147,7 +147,7 @@ end
 #
 shared_examples_for 'a port' do
   it 'is listening' do
-    expect(port port_number).to be_listening.with port_proto
+    expect((port port_number)).to be_listening.with port_proto
   end
 end
 

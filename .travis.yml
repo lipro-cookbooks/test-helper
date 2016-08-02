@@ -24,10 +24,12 @@
 # http://docs.travis-ci.com/user/languages/ruby/
 
 # See details for chef cookbooks on:
+# https://github.com/chef-cookbooks/apt/blob/master/.travis.yml
 # https://github.com/chef-cookbooks/maven/blob/master/.travis.yml
 # https://github.com/chef-cookbooks/jenkins/blob/master/.travis.yml
 
 sudo: required
+dist: trusty
 
 # Install the stable release chef-dk.
 # Use chef-current-precise to install the pre-release
@@ -49,14 +51,16 @@ env:
     # Ignore warnings when running specs.
     - RUBYOPT="-W0"
   matrix:
-    - INSTANCE=default-ubuntu-1204
-    - INSTANCE=overrides-ubuntu-1204
-    - INSTANCE=default-ubuntu-1404
-    - INSTANCE=overrides-ubuntu-1404
-    - INSTANCE=default-centos-6
-    - INSTANCE=overrides-centos-6
     - INSTANCE=default-centos-7
     - INSTANCE=overrides-centos-7
+    - INSTANCE=default-centos-6
+    - INSTANCE=overrides-centos-6
+    - INSTANCE=default-ubuntu-1604
+    - INSTANCE=overrides-ubuntu-1604
+    - INSTANCE=default-ubuntu-1404
+    - INSTANCE=overrides-ubuntu-1404
+    - INSTANCE=default-ubuntu-1204
+    - INSTANCE=overrides-ubuntu-1204
 
 # Ensure we make ChefDK's Ruby the default
 before_script:

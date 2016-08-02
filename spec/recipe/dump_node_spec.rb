@@ -95,7 +95,7 @@ shared_examples 'dump_node_recipes' do |platform, version|
 
     cached(:chef_run) do
       ChefSpec::SoloRunner.new(platform: platform, version: version)
-        .converge(described_recipe)
+                          .converge(described_recipe)
     end
     subject { chef_run }
 
@@ -126,18 +126,18 @@ shared_examples 'dump_node_defaults' do |platform, version|
 
     cached(:chef_run) do
       ChefSpec::SoloRunner.new(platform: platform, version: version)
-        .converge(described_recipe)
+                          .converge(described_recipe)
     end
     subject { chef_run }
 
     include_examples 'prepare test helper runtime environment' do
-      let(:dir)  { "#{th[:dir]}" }
-      let(:node) { "#{th[:node]}" }
+      let(:dir)  { th[:dir].to_s }
+      let(:node) { th[:node].to_s }
     end
 
     include_examples 'dump node' do
-      let(:dir)  { "#{th[:dir]}" }
-      let(:node) { "#{th[:node]}" }
+      let(:dir)  { th[:dir].to_s }
+      let(:node) { th[:node].to_s }
     end
   end
 end
@@ -181,7 +181,7 @@ shared_examples 'dump_node_unsupported' do |platform, version|
   context "on #{platform} #{version} (unsupported)" do
     cached(:chef_run) do
       ChefSpec::SoloRunner.new(platform: platform, version: version)
-        .converge(described_recipe)
+                          .converge(described_recipe)
     end
     subject { chef_run }
 
