@@ -23,7 +23,7 @@
 # https://docs.getchef.com/config_rb_metadata.html
 
 name 'test-helper'
-version '1.1.0'
+version '1.2.0'
 
 license 'Apache 2.0'
 

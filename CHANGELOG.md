@@ -3,7 +3,7 @@ Test Helper CHANGELOG
 
 This file is used to list changes made in each version of the Test Helper cookbook.
 
-x.y.z
+1.2.0
 -----
 
 - Stephan Linz - add source_url in metadata (fix FC065)
